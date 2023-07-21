@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		639B0FC32A6AFCFD00C9CEFF /* privateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B0FC22A6AFCFD00C9CEFF /* privateViewController.swift */; };
+		639B0FC72A6B0D1F00C9CEFF /* TableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B0FC62A6B0D1F00C9CEFF /* TableViewController1.swift */; };
 		639C33282A685AB000A08D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C33272A685AB000A08D26 /* AppDelegate.swift */; };
 		639C332A2A685AB000A08D26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C33292A685AB000A08D26 /* SceneDelegate.swift */; };
 		639C332C2A685AB000A08D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C332B2A685AB000A08D26 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		639B0FC22A6AFCFD00C9CEFF /* privateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privateViewController.swift; sourceTree = "<group>"; };
+		639B0FC62A6B0D1F00C9CEFF /* TableViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController1.swift; sourceTree = "<group>"; };
 		639C33242A685AB000A08D26 /* ReminderNotesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderNotesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		639C33272A685AB000A08D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		639C33292A685AB000A08D26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		639C331B2A685AB000A08D26 = {
 			isa = PBXGroup;
 			children = (
+				639B0FC62A6B0D1F00C9CEFF /* TableViewController1.swift */,
+				639B0FC22A6AFCFD00C9CEFF /* privateViewController.swift */,
 				639C33262A685AB000A08D26 /* ReminderNotesDemo */,
 				639C33252A685AB000A08D26 /* Products */,
 			);
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639B0FC32A6AFCFD00C9CEFF /* privateViewController.swift in Sources */,
 				639C332C2A685AB000A08D26 /* ViewController.swift in Sources */,
+				639B0FC72A6B0D1F00C9CEFF /* TableViewController1.swift in Sources */,
 				639C33282A685AB000A08D26 /* AppDelegate.swift in Sources */,
 				639C332A2A685AB000A08D26 /* SceneDelegate.swift in Sources */,
 			);
