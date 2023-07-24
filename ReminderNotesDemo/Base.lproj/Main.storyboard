@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ejt-O4-izB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wpk-Yz-5V7">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -91,6 +91,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Ins-sU-MpU" appends="YES" id="TYv-Tw-ItF"/>
+                                    <outletCollection property="gestureRecognizers" destination="XVp-8k-kNv" appends="YES" id="wRS-gZ-cc5"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hO6-hg-wYN">
@@ -587,9 +588,12 @@
                         <outlet property="TodayTask" destination="0Eh-tt-RYO" id="75L-x6-q0O"/>
                         <outlet property="WarningLabel" destination="XDn-S7-uon" id="C2p-iM-3I2"/>
                         <outlet property="addOutlet" destination="7HV-qh-B68" id="mSW-h7-6TB"/>
-                        <outlet property="newFolder1" destination="Mdf-fR-ig2" id="vSe-fr-YxL"/>
-                        <outlet property="newFolder2" destination="Y55-5V-c1E" id="wbl-IW-6QX"/>
-                        <outlet property="newFolder3" destination="jf0-H7-zyC" id="8Ce-dP-0c7"/>
+                        <outlet property="newFolder1" destination="Mdf-fR-ig2" id="7Zq-6Z-hz9"/>
+                        <outlet property="newFolder1Text" destination="gRE-9J-qfr" id="F5h-H3-K4b"/>
+                        <outlet property="newFolder2" destination="Y55-5V-c1E" id="w56-Rl-G8b"/>
+                        <outlet property="newFolder2Text" destination="S32-0s-Lsb" id="lIK-FT-SVM"/>
+                        <outlet property="newFolder3" destination="jf0-H7-zyC" id="ojR-WQ-HS7"/>
+                        <outlet property="newFolder3Text" destination="KM5-57-Qeu" id="fDM-nl-wNn"/>
                         <outlet property="searchOutlet" destination="Q6m-yh-EbV" id="2Sk-ct-2I3"/>
                         <outletCollection property="collectionsOutlets" destination="hO6-hg-wYN" collectionClass="NSMutableArray" id="yLY-hq-KZN"/>
                         <outletCollection property="collectionsOutlets" destination="0Eh-tt-RYO" collectionClass="NSMutableArray" id="02r-10-OJq"/>
@@ -633,8 +637,42 @@
                         <action selector="addAction:" destination="wJU-yb-PPX" id="LTd-tB-VeH"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="XVp-8k-kNv">
+                    <connections>
+                        <action selector="tapGestureAction:" destination="wJU-yb-PPX" id="v7t-TK-zrd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="872.51908396946567" y="3.5211267605633805"/>
+        </scene>
+        <!--Common Table View Controller-->
+        <scene sceneID="bNm-14-Xo5">
+            <objects>
+                <tableViewController storyboardIdentifier="CommonTableViewController" id="Wpk-Yz-5V7" customClass="CommonTableViewController" customModule="ReminderNotesDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NVt-ua-7rJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5SX-U0-rDy">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5SX-U0-rDy" id="5Tn-yK-kwq">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wpk-Yz-5V7" id="gRX-DR-pED"/>
+                            <outlet property="delegate" destination="Wpk-Yz-5V7" id="wAS-TQ-1fv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUl-Fg-a3T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="739"/>
         </scene>
         <!--Private View Controller-->
         <scene sceneID="yG0-0x-eJd">
