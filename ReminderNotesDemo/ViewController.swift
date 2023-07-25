@@ -15,12 +15,17 @@ class ViewController: UIViewController {
     var newFolderName2 = "New Folder"
     var newFolderName3 = "New Folder"
     
-    func xxx() {
+    func timerFunc() {
         
         time -= 1
-        if newFolder3.isHidden == false {
-            WarningLabel.isHidden = false
+        if time == 0 {
+            timefunc()
+//            timer.invalidate()
+//            WarningLabel.isHidden = true
         }
+//        if newFolder3.isHidden == false {
+//            WarningLabel.isHidden = false
+//        }
         
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
@@ -42,6 +47,15 @@ class ViewController: UIViewController {
                     self.newFolder2Text.text = textField.text ?? "New Folder"
                 } else if sender.view == self.newFolder3 {
                     self.newFolder3Text.text = textField.text ?? "New Folder"
+                }
+                if textField.text == "" {
+                    self.newFolder1Text.text = "New Folder"
+                }
+                if textField.text == "" {
+                    self.newFolder2Text.text = "New Folder"
+                }
+                if textField.text == "" {
+                    self.newFolder3Text.text = "New Folder"
                 }
             }
             alertController.addAction(okAction)
@@ -80,10 +94,10 @@ class ViewController: UIViewController {
         }
         let longPress1 = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         newFolder1.addGestureRecognizer(longPress1)
-
+        
         let longPress2 = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         newFolder2.addGestureRecognizer(longPress2)
-
+        
         let longPress3 = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         newFolder3.addGestureRecognizer(longPress3)
         
@@ -99,7 +113,7 @@ class ViewController: UIViewController {
         newFolder2.isHidden = true
         newFolder3.isHidden = true
         WarningLabel.isHidden = true
-
+        
     }
     @IBAction func todayAction(_ sender: Any) {
     }
@@ -128,38 +142,29 @@ class ViewController: UIViewController {
         } else if newFolder3.isHidden == true {
             newFolder3.isHidden = false
         }
-        if collectionsOutlets.last?.isHidden == false {
+        if newFolder3.isHidden == false {
             WarningLabel.isHidden = false
+            
         }
-        
-        xxx()
-      
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       
         if WarningLabel.isHidden == false {
-            timefunc()
+            timerFunc()
         }
+        if time == 0 {
+            
+            WarningLabel.isHidden = true
+            timerFunc()
+        }
+            
     }
     
     @objc func timefunc() {
         time -= 1
         if time == 0 {
             timer.invalidate()
-        }
-        
-        if time == 0 {
-            WarningLabel.isHidden = false
-        }
-        if WarningLabel.isHidden == false {
             WarningLabel.isHidden = true
         }
+    
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        xxx()
-        
-    }
+    
 }
 
