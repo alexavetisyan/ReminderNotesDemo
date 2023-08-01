@@ -133,7 +133,6 @@ class ViewController: UIViewController {
         commonTableViewController.modalPresentationStyle = .fullScreen
         present(commonTableViewController, animated: true, completion: nil)
     }
-    
     @IBAction func addAction(_ sender: Any) {
         if newFolder1.isHidden == true {
             newFolder1.isHidden = false

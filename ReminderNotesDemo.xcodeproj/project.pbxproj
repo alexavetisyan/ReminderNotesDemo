@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3AB71FDB2A6E79B100682DF4 /* CommonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB71FDA2A6E79B100682DF4 /* CommonTableViewController.swift */; };
+		3AB71FDE2A710D8C00682DF4 /* CommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB71FDC2A710D8C00682DF4 /* CommonTableViewCell.swift */; };
+		3AB71FDF2A710D8C00682DF4 /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AB71FDD2A710D8C00682DF4 /* CommonTableViewCell.xib */; };
 		639B0FC32A6AFCFD00C9CEFF /* privateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B0FC22A6AFCFD00C9CEFF /* privateViewController.swift */; };
 		639B0FC72A6B0D1F00C9CEFF /* TableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B0FC62A6B0D1F00C9CEFF /* TableViewController1.swift */; };
 		639C33282A685AB000A08D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C33272A685AB000A08D26 /* AppDelegate.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		3AB71FDA2A6E79B100682DF4 /* CommonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewController.swift; sourceTree = "<group>"; };
+		3AB71FDC2A710D8C00682DF4 /* CommonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewCell.swift; sourceTree = "<group>"; };
+		3AB71FDD2A710D8C00682DF4 /* CommonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonTableViewCell.xib; sourceTree = "<group>"; };
 		639B0FC22A6AFCFD00C9CEFF /* privateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privateViewController.swift; sourceTree = "<group>"; };
 		639B0FC62A6B0D1F00C9CEFF /* TableViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController1.swift; sourceTree = "<group>"; };
 		639C33242A685AB000A08D26 /* ReminderNotesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderNotesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,8 @@
 				639C332B2A685AB000A08D26 /* ViewController.swift */,
 				639C332D2A685AB000A08D26 /* Main.storyboard */,
 				3AB71FDA2A6E79B100682DF4 /* CommonTableViewController.swift */,
+				3AB71FDC2A710D8C00682DF4 /* CommonTableViewCell.swift */,
+				3AB71FDD2A710D8C00682DF4 /* CommonTableViewCell.xib */,
 				639C33302A685AB600A08D26 /* Assets.xcassets */,
 				639C33322A685AB600A08D26 /* LaunchScreen.storyboard */,
 				639C33352A685AB600A08D26 /* Info.plist */,
@@ -134,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB71FDF2A710D8C00682DF4 /* CommonTableViewCell.xib in Resources */,
 				639C33342A685AB600A08D26 /* LaunchScreen.storyboard in Resources */,
 				639C33312A685AB600A08D26 /* Assets.xcassets in Resources */,
 				639C332F2A685AB000A08D26 /* Main.storyboard in Resources */,
@@ -149,6 +156,7 @@
 			files = (
 				639B0FC32A6AFCFD00C9CEFF /* privateViewController.swift in Sources */,
 				639C332C2A685AB000A08D26 /* ViewController.swift in Sources */,
+				3AB71FDE2A710D8C00682DF4 /* CommonTableViewCell.swift in Sources */,
 				639B0FC72A6B0D1F00C9CEFF /* TableViewController1.swift in Sources */,
 				639C33282A685AB000A08D26 /* AppDelegate.swift in Sources */,
 				3AB71FDB2A6E79B100682DF4 /* CommonTableViewController.swift in Sources */,

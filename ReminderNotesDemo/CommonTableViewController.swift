@@ -11,6 +11,8 @@ class CommonTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "CommonTableViewCell", bundle: nil)
+                tableView.register(nib, forCellReuseIdentifier: "MyCell")
     }
 
     // MARK: - Table view data source
@@ -23,30 +25,16 @@ class CommonTableViewController: UITableViewController {
         return 3
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
-        // First Line
-        let Title = UILabel()
-        Title.text = "Title"
-        Title.font = UIFont.boldSystemFont(ofSize: 18)
-        cell.contentView.addSubview(Title)
-        Title.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            Title.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16),
-            Title.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 8),
-        ])
         
-        // Second Line
-        let Description = UILabel()
-        Description.text = "Description"
-        Description.font = UIFont.systemFont(ofSize: 16)
-        cell.contentView.addSubview(Description)
-        Description.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            Description.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16),
-            Description.topAnchor.constraint(equalTo: Title.bottomAnchor, constant: 8),
-        ])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
 
         return cell
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
     }
 
 }
