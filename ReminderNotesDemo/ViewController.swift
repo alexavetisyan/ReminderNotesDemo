@@ -9,30 +9,73 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Variables
+    
     var timer = Timer()
     var time = 4
     var newFolderName1 = "New Folder"
     var newFolderName2 = "New Folder"
     var newFolderName3 = "New Folder"
+    var howManyFolders = 0
     
-    func timerFunc() {
-        
-        time -= 1
-        if time == 0 {
-            timefunc()
-//            timer.invalidate()
-//            WarningLabel.isHidden = true
-        }
-//        if newFolder3.isHidden == false {
-//            WarningLabel.isHidden = false
-//        }
-        
-        timer = Timer.scheduledTimer(timeInterval: 1,
-                                     target: self,
-                                     selector: #selector(timefunc),
-                                     userInfo: nil,
-                                     repeats: true)
+    // MARK: - IBOutlets
+    
+    @IBOutlet var collectionsOutlets: [UIView]!
+    @IBOutlet weak var WarningLabel: UILabel!
+    @IBOutlet weak var searchOutlet: UITextField!
+    @IBOutlet weak var TodayTask: UIView!
+    @IBOutlet weak var ScheduledOutlet: UIView!
+    @IBOutlet weak var AllOutlet: UIView!
+    @IBOutlet weak var CompletedOutlet: UIView!
+    @IBOutlet weak var PrivateOutlet: UIView!
+    @IBOutlet weak var addOutlet: UIButton!
+    @IBOutlet weak var newFolder1: UIView!
+    @IBOutlet weak var newFolder2: UIView!
+    @IBOutlet weak var newFolder3: UIView!
+    @IBOutlet weak var newFolder1Text: UILabel!
+    @IBOutlet weak var newFolder2Text: UILabel!
+    @IBOutlet weak var newFolder3Text: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addTapAndLongPressGestures()
+        foldersConfigurations()
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func todayAction(_ sender: Any) {
+    }
+    @IBAction func scheduledAction(_ sender: Any) {
+    }
+    @IBAction func allAction(_ sender: Any) {
+    }
+    @IBAction func completedAction(_ sender: Any) {
+    }
+    @IBAction func privateAction(_ sender: Any) {
+    }
+    @IBAction func tapGestureAction(_ sender: Any) {
+        let commonTableViewController = CommonTableViewController()
+        commonTableViewController.modalPresentationStyle = .fullScreen
+        present(commonTableViewController, animated: true, completion: nil)
+    }
+    @IBAction func addAction(_ sender: Any) {
+        howManyFolders += 1
+        if newFolder1.isHidden == true {
+            newFolder1.isHidden = false
+        } else if newFolder2.isHidden == true {
+            newFolder2.isHidden = false
+        } else if newFolder3.isHidden == true {
+            newFolder3.isHidden = false
+        }
+        if howManyFolders >= 4 {
+            WarningLabel.isHidden = false
+            timerFunc()
+        }
+    }
+    
+    // MARK: - @objc Functions
+    
     @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             let alertController = UIAlertController(title: "Change the name of your folder", message: nil, preferredStyle: .alert)
@@ -67,26 +110,25 @@ class ViewController: UIViewController {
         commonTableViewController.modalPresentationStyle = .fullScreen
         present(commonTableViewController, animated: true, completion: nil)
     }
+    @objc func timefunc() {
+        time -= 1
+        if time == 0 {
+            timer.invalidate()
+            WarningLabel.isHidden = true
+            time = 4
+        }
+    }
     
-    @IBOutlet var collectionsOutlets: [UIView]!
-    @IBOutlet weak var WarningLabel: UILabel!
-    @IBOutlet weak var searchOutlet: UITextField!
-    @IBOutlet weak var TodayTask: UIView!
-    @IBOutlet weak var ScheduledOutlet: UIView!
-    @IBOutlet weak var AllOutlet: UIView!
-    @IBOutlet weak var CompletedOutlet: UIView!
-    @IBOutlet weak var PrivateOutlet: UIView!
-    @IBOutlet weak var addOutlet: UIButton!
-    @IBOutlet weak var newFolder1: UIView!
-    @IBOutlet weak var newFolder2: UIView!
-    @IBOutlet weak var newFolder3: UIView!
-    @IBOutlet weak var newFolder1Text: UILabel!
-    @IBOutlet weak var newFolder2Text: UILabel!
-    @IBOutlet weak var newFolder3Text: UILabel!
+    // MARK: - Function
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
+    private func timerFunc() {
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                     target: self,
+                                     selector: #selector(timefunc),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    private func addTapAndLongPressGestures(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
         TodayTask.addGestureRecognizer(tapGesture)
         for view in collectionsOutlets {
@@ -100,70 +142,14 @@ class ViewController: UIViewController {
         
         let longPress3 = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         newFolder3.addGestureRecognizer(longPress3)
-        
-        TodayTask.layer.cornerRadius = 15
-        ScheduledOutlet.layer.cornerRadius = 15
-        AllOutlet.layer.cornerRadius = 15
-        CompletedOutlet.layer.cornerRadius = 15
-        PrivateOutlet.layer.cornerRadius = 15
-        newFolder1.layer.cornerRadius = 15
-        newFolder2.layer.cornerRadius = 15
-        newFolder3.layer.cornerRadius = 15
+    }
+    private func foldersConfigurations() {
+        for item in collectionsOutlets {
+            item.layer.cornerRadius = 15
+        }
         newFolder1.isHidden = true
         newFolder2.isHidden = true
         newFolder3.isHidden = true
         WarningLabel.isHidden = true
-        
-    }
-    @IBAction func todayAction(_ sender: Any) {
-    }
-    @IBAction func scheduledAction(_ sender: Any) {
-    }
-    @IBAction func allAction(_ sender: Any) {
-    }
-    @IBAction func completedAction(_ sender: Any) {
-    }
-    @IBAction func privateAction(_ sender: Any) {
-        
-    }
-    
-    
-    @IBAction func tapGestureAction(_ sender: Any) {
-        let commonTableViewController = CommonTableViewController()
-        commonTableViewController.modalPresentationStyle = .fullScreen
-        present(commonTableViewController, animated: true, completion: nil)
-    }
-    @IBAction func addAction(_ sender: Any) {
-        if newFolder1.isHidden == true {
-            newFolder1.isHidden = false
-        } else if newFolder2.isHidden == true {
-            newFolder2.isHidden = false
-        } else if newFolder3.isHidden == true {
-            newFolder3.isHidden = false
-        }
-        if newFolder3.isHidden == false {
-            WarningLabel.isHidden = false
-            
-        }
-        if WarningLabel.isHidden == false {
-            timerFunc()
-        }
-        if time == 0 {
-            
-            WarningLabel.isHidden = true
-            timerFunc()
-        }
-            
-    }
-    
-    @objc func timefunc() {
-        time -= 1
-        if time == 0 {
-            timer.invalidate()
-            WarningLabel.isHidden = true
-        }
-    
-    }
-    
-}
+    }}
 

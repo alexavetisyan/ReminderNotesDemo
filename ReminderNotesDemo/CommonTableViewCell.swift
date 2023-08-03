@@ -10,12 +10,11 @@ import UIKit
 class CommonTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var selectedOutlet: UIImageView!
+//    @IBOutlet weak var selectedOutlet: UIImageView!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,7 +25,7 @@ class CommonTableViewCell: UITableViewCell {
     
     
     @IBAction func selectedAction(_ sender: Any) {
-        selectedOutlet.image = UIImage(named: "pencil.circle.fill")
+//        selectedOutlet.image = UIImage(named: "pencil.circle.fill")
         print("okkkk")
     }
     
