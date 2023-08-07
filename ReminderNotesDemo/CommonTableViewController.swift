@@ -11,8 +11,8 @@ class CommonTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "CommonTableViewCell", bundle: nil)
-                tableView.register(nib, forCellReuseIdentifier: "CommonTableViewCell")
+        let nib = UINib(nibName: "NewTableViewCell", bundle: nil)
+                tableView.register(nib, forCellReuseIdentifier: "NewTableViewCell")
     }
 
     // MARK: - Table view data source
@@ -26,7 +26,7 @@ class CommonTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommonTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell", for: indexPath)
 
         return cell
     }
